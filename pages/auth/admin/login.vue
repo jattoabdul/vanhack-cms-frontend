@@ -16,7 +16,7 @@ export default {
   data() {
     return {
       showPassword: false,
-      requesting: false,
+      requesting: false
     }
   },
   computed: {

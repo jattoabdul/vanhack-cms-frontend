@@ -11,7 +11,7 @@ export default function ({ $axios, store }) {
     // Refresh JWT token if needed
     // ...
     if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`
+      config.headers.Authorization = `Bearer ${token}`
     }
 
     return config

@@ -3,16 +3,13 @@
     <h1 class="heading2">
       Student Signin
     </h1>
+  </div>
 </template>
 
 <script>
-import ScaleLoader from 'vue-spinner/src/ScaleLoader.vue'
-import jwtDecode from 'jwt-decode'
 export default {
-  layout: 'access',
-  components: {
-    ScaleLoader
-  },
+  // layout: 'access',
+  components: {},
   data() {
     return {
       showPassword: false,
