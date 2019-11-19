@@ -117,7 +117,7 @@ module.exports = {
     ApiUrl: process.env.API_URL
   },
   server: {
-    port: process.env.PORT || 6000, // default: USE VANHACK-CMS PORT
+    port: process.env.PORT || 3600, // default: USE VANHACK-CMS PORT
     host: '0.0.0.0' // default: localhost
   },
   /*
