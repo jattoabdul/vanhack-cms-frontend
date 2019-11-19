@@ -1,0 +1,117 @@
+.modal {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  background: $bg-black-rgba;
+  display: flex;
+  justify-content: center;
+
+  .modal-body {
+    background: $light;
+    border-radius: 0.563rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    &.row {
+      flex-direction: row;
+    }
+
+    &.no-flex {
+      display: block;
+    }
+
+    &.small {
+      margin-top: 11.5rem;
+      margin-bottom: 32.375rem;
+      width: 27.813rem;
+      height: 20.125rem;
+      padding: 3.063rem 6.063rem 2.5rem 6.063rem;
+    }
+
+    &.smaller {
+      margin-top: 11.5rem;
+      margin-bottom: 32.375rem;
+      width: 27.813rem;
+      height: 20.125rem;
+      padding: 3.063rem 3.063rem 2.5rem 3.063rem;
+    }
+
+    &.slim {
+      margin-top: 9.5rem;
+      margin-bottom: 32.375rem;
+      width: 27.813rem;
+      height: 34.063rem;
+      padding: 1.875rem 2.688rem 2.125rem 2.688rem;
+    }
+    &.slimer {
+      margin-top: 9.5rem;
+      margin-bottom: 32.375rem;
+      width: 27.813rem;
+      height: 34.063rem;
+      padding: 1.875rem 0.688rem 2.125rem 0.688rem;
+    }
+
+    &.medium {
+      margin-top: 11.5rem;
+      margin-bottom: 32.375rem;
+      width: 39.5rem;
+      height: 28.188rem;
+      padding: 1.875rem 2.688rem 2.125rem 2.688rem;
+    }
+
+    &.hfc {
+      height: fit-content;
+    }
+
+    &.wfc {
+      width: fit-content;
+    }
+
+    &.center-text {
+      text-align: center;
+    }
+
+    &.big {
+      margin-top: 11.5rem;
+      margin-bottom: 32.375rem;
+      width: 27.813rem;
+      height: 20.125rem;
+      padding: 3.063rem 6.063rem 2.5rem 6.063rem;
+    }
+  }
+}
+
+// .top-widget {
+//   display: flex;
+//   justify-content: flex-end;
+//   .close-modal {
+//     cursor: pointer;
+//     float: left;
+//     position: relative;
+//     margin-right: -25%;
+//     width: 2rem;
+//     height: 2rem;
+
+//     &:before, &:after {
+//       content: '';
+//       position: absolute;
+//       top: 0;
+//       height: 100%;
+//       width: 2px;
+//       background: $dark;
+//     }
+//     &:before {
+//       left: 47%;
+//       transform: rotate(45deg);
+//     }
+//     &:after {
+//       right: 50%;
+//       transform: rotate(-45deg);
+//     }
+//   }
+// }
