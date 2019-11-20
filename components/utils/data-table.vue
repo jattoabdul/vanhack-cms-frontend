@@ -359,7 +359,7 @@ export default {
 
         const { data } = await this.$axios(queryUrl, {
           headers: {
-            'Authorization': `Bearer ${token}`
+            Authorization: `Bearer ${token}`
           }
         })
         const tableRawData = data.payload[dataToPull]

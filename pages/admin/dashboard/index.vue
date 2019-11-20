@@ -1,21 +1,16 @@
 <template>
   <div class="page">
-    admin dashboard
+    <div class="loading">
+      Loading...
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  // layout: 'admin-dashboard',
   components: {},
-  data() {
-    return {}
-  },
-  computed: {}
-  // async asyncData({ $axios: axios, store }) {
-  //   return {}
-  // }
+  asyncData({ redirect, store }) {
+    return redirect('/admin/dashboard/courses/')
+  }
 }
 </script>
-
-<style lang="scss" src="./dashboard.scss" scoped />

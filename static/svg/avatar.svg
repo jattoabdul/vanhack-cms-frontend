@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="54" height="54" viewBox="0 0 54 54">
+    <defs>
+        <circle id="a" cx="25" cy="25" r="25"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd" transform="translate(2 2)">
+        <mask id="b" fill="#fff">
+            <use xlink:href="#a"/>
+        </mask>
+        <use fill="#F9DD9D" stroke="#63312D" stroke-width="3" xlink:href="#a"/>
+        <g fill-rule="nonzero" mask="url(#b)">
+            <path fill="#F9A287" d="M29.68 9.948l-1.5 1.079-1.503-1.08-1.499 1.08-1.495-1.08-1.498 1.08-1.495-1.08V-.69h8.99z"/>
+            <path fill="#63312D" d="M25.18 11.672a.729.729 0 0 1-.424-.135l-1.072-.773-1.074.773a.73.73 0 0 1-.845 0l-1.497-1.077A.628.628 0 0 1 20 9.95V-.69c0-.355.31-.644.692-.644h8.99c.383 0 .693.289.693.644V9.95c0 .2-.1.389-.269.51l-1.502 1.078a.731.731 0 0 1-.845 0l-1.078-.774-1.075.773a.742.742 0 0 1-.426.136zm1.499-2.369c.148 0 .299.046.424.134l1.076.775.81-.581V-.045h-7.607v9.677l.805.579 1.074-.774a.725.725 0 0 1 .846 0l1.071.774 1.076-.774a.74.74 0 0 1 .425-.134z"/>
+        </g>
+        <rect width="8.667" height="5.333" x="33" y="29.667" fill="#FFF" stroke="#63312D" stroke-width="2" rx=".4"/>
+    </g>
+</svg>

@@ -1,0 +1,296 @@
+.page {
+  background: $grey;
+
+  main {
+    padding: 1rem;
+    min-width: 900px;
+
+    .top-actions {
+      font-size: 0.875rem;
+      font-weight: normal;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      color: $dark-grey-text;
+      margin-bottom: 1.625rem;
+
+      .nav-back {
+        display: flex;
+        align-items: center;
+        color: $dark-grey-text;
+        margin: 1.063rem auto;
+        cursor: pointer;
+
+        img {
+          width: .4375rem;
+          height: .75rem;
+          margin-right: .6rem;
+        }
+      }
+      .heading {
+        display: flex;
+        align-items: center;
+        color: $dark-grey-text;
+        cursor: pointer;
+        font-size: .9375rem;
+        line-height: 1.33;
+
+        img {
+          width: 1.2rem;
+          margin-right: .5rem;
+        }
+      }
+    }
+
+    .shipments-details-container {
+      background: $light;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px 0 rgba(63, 63, 68, 0.15), 0 0 0 1px rgba(63, 63, 68, 0.05);
+      display: grid;
+      grid-template-areas:
+      'sd sd sd';
+      margin-bottom: 1rem;
+
+      @include for-tablet-landscape-up {
+        width: 80%;
+      }
+
+      .shipments-details {
+        grid-area: sd;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1.8rem 2.4rem;
+        font-size: 14px;
+        line-height: 1.43;
+        letter-spacing: normal;
+        // overflow: auto; // remove if issues on other screen
+        // height: 100vh; // remove if issues on other screen
+        // padding: 1.563rem 1rem 0.563rem 1.438rem; // remove if issues on other screen
+
+        .each-shipment {
+          position: relative;
+          // margin-bottom: 2rem;
+          // width: 30.625rem;
+          width: 100%;
+
+          // &:after {
+          //   position: absolute;
+          //   content: ' ';
+          //   background: $border-bottom-grey;
+          //   height: 1px;
+          //   width: 100%;
+          //   bottom: -15px;
+          //   left: 0;
+          // }
+
+          .shipment-and-delivery-address {
+            // display: flex;
+            // justify-content: space-between;
+            // align-items: center;
+            grid-column-gap: 3rem;
+            display: grid;
+            grid-template-columns: 2.6fr .2fr 1.2fr;
+            // grid-template-columns: 2fr 12rem;
+            margin-bottom: 2.063rem;
+
+            .shipment-detail {
+              h6 {
+                font-size: 0.875rem;
+                font-weight: 500;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.43;
+                letter-spacing: normal;
+                color: $bluish-grey;
+                margin-bottom: 1rem;
+              }
+
+              .content {
+                // display: flex;
+
+                .each-line {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  margin-bottom: 1.2rem;
+
+                  .title {
+                    font-size: .875rem;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.43;
+                    letter-spacing: normal;
+                    color: $dark-grey-text;
+                  }
+
+                  .value {
+                    font-size: .875rem;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.43;
+                    letter-spacing: normal;
+                    color: $bluish-grey;
+                    text-transform: capitalize;
+
+                    &.mw12 {
+                      max-width: 12rem;
+                      text-align: right;
+                    }
+                  }
+
+                  .amount-value {
+                    font-size: .875rem;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.43;
+                    letter-spacing: normal;
+                    color: $dark;
+
+                    .price-value {
+                      font-size: 1.3rem;
+                      font-weight: 500;
+                      font-style: normal;
+                      font-stretch: normal;
+                      line-height: normal;
+                      letter-spacing: normal;
+                      color: $primary;
+                      margin-left: .5rem;
+                    }
+                  }
+
+                  .info-icon {
+                    margin-left: .5rem;
+                    cursor: pointer;
+                  }
+
+                  .label {
+                    border: 2px solid $border-bottom-grey;
+                    border-radius: 6.25rem;
+                    text-transform: capitalize;
+                    padding: .1rem .4rem;
+                    background-color: $border-bottom-grey;
+                    cursor: pointer;
+
+                    display: inline-flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    font-size: 0.813rem;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.23;
+                    letter-spacing: normal;
+                    text-align: center;
+                    color: $darker-grey-text;
+
+                    &.completed {
+                      background-color: $green;
+                      border: 2px solid $green;
+                      color: $light;
+                    }
+                    &.paid {
+                      margin-left: .5rem;
+                      background-color: $green;
+                      border: 2px solid $green;
+                      color: $light !important;
+                    }
+                    &.unpaid {
+                      margin-left: .5rem;
+                      background-color: $yellow;
+                      border: 2px solid $yellow;
+                    }
+                  }
+                }
+
+                .each-shipment-icon {
+                  align-self: flex-start;
+                  margin-right: 1rem;
+                }
+                .address-content {
+                  max-width: 14rem;
+
+                  p {
+                    font-size: 0.875rem;
+                    font-weight: normal;
+                    font-style: normal;
+                    font-stretch: normal;
+                    line-height: 1.43;
+                    letter-spacing: normal;
+                    color: $dark-grey-text;
+
+                    span {
+                      color: $dark;
+                    }
+                  }
+                }
+              }
+            }
+            .delivery-address {
+              max-width: 12rem;
+
+              h6 {
+                font-size: 0.875rem;
+                font-weight: 500;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.43;
+                letter-spacing: normal;
+                color: $bluish-grey;
+                margin-bottom: 1rem;
+              }
+
+              p {
+                font-size: 0.875rem;
+                font-weight: normal;
+                font-style: normal;
+                font-stretch: normal;
+                line-height: 1.43;
+                letter-spacing: normal;
+                color: $dark-grey-text;
+
+                &.change-address-link {
+                  color: $dark-blue;
+                  cursor: pointer;
+                  margin-top: 1.3rem;
+                }
+              }
+            }
+          }
+          .divider {
+            border-bottom: 1px solid $border-grey;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+          }
+          .delivery-status {
+            h6 {
+              font-size: 0.875rem;
+              font-weight: normal;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: 1.43;
+              letter-spacing: normal;
+              color: $bluish-grey;
+              margin-bottom: .4rem;
+            }
+
+            .delivery-status-imgs {
+              width: 95%;
+            }
+
+            p {
+              .mr {
+                margin-right: .5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

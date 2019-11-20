@@ -1,0 +1,93 @@
+.error {
+    background: $grey;
+    padding-top: 4rem;
+    padding-left: 10rem;
+    padding-right: 10.006rem;
+    // padding-bottom: 1.5rem;
+  
+    nav {
+      position: fixed;
+      width: 100%;
+      height: 60px;
+      padding: 1.5rem 6.5vw;
+      background: white;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 2.5rem;
+      }
+    }
+
+    main {
+        height: 100vh;
+
+        .title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: $nav-blue;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.39;
+            letter-spacing: normal;
+        }
+
+        .error-detail {
+            background: $light;
+            padding: 3rem 3rem;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+
+            .error-item-wrapper {
+                p {
+                    color: $dark-gray;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: normal;
+                }
+
+                .item-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 1rem 0 3rem;
+
+                    li {
+                        margin-bottom: .8rem;
+                        display: flex;
+                        align-items: center;
+
+                        span:first-child {
+                            margin-right: .5rem;
+                            margin-top: .3rem;
+
+                            img {}
+                        }
+                    }
+                }
+
+                button {
+                    border-radius: 1.5rem;
+                    width: fit-content;
+                    padding: 0 1rem;
+                    font-size: .82rem;
+                }
+            }
+            .error-img {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    height: 17rem;
+                }
+            }
+        }
+    }
+
+  }
+  

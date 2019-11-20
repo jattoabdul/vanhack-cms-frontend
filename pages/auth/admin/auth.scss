@@ -1,8 +1,545 @@
 .page {
-  padding: 2rem 2.5rem;
-  background: white;
-  border-radius: 3px;
-  border: solid 1px #dddddd;
-  color: $light-grey;
-  min-height: 10rem;
+  background: $nav-blue;
+  color: $light;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+
+  main {
+    margin-top: 5.5rem;
+  }
+
+  .auth-wrapper {
+    .title-text {
+      // margin-bottom: 0.9rem;
+      line-height: normal;
+      font-size: 1.5rem;
+    }
+
+    .sub-text {
+      // margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.39;
+    }
+
+    .auth-action-loading-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-color: $primary;
+      height: 2.5rem;
+    }
+
+    button.auth-action-btn {
+      margin-top: 0.875rem;
+      margin-bottom: 1rem;
+      height: 3.125rem;
+    }
+
+    .form-field {
+      height: 3.25rem;
+      width: 100%;
+      border-radius: 0.25rem;
+      border: solid 1px $border-grey;
+      background-color: $grey;
+      position: relative;
+
+      .raised-label {
+        display: none;
+
+        &.live {
+          color: $dark-gray;
+          font-size: 0.8rem;
+          margin: 5px 0;
+          position: absolute;
+          top: -0.3rem;
+          left: 1rem;
+          display: flex;
+          align-items: center;
+          z-index: 1;
+        }
+      }
+
+      &.prefixed {
+        .raised-label {
+          &.live {
+            left: 7.5rem;
+          }
+        }
+      }
+
+      .error-text {
+        display: none;
+      }
+
+      &.with-control {
+        padding-right: 2.5rem;
+        position: relative;
+
+        .view-control {
+          position: absolute;
+          border: none;
+          top: 0;
+          right: 0;
+          width: 2rem;
+          object-fit: contain;
+          height: 100%;
+          cursor: pointer;
+          user-select: none;
+          padding-right: 0.5rem;
+
+          &.show-text, &.hide-text {
+            font-size: 0.75rem;
+            top: 1rem;
+            right: 0.75rem;
+            padding-right: 0;
+            color: $primary;
+          }
+
+          &.hide-text {
+            letter-spacing: 0.1rem;
+          }
+        }
+      }
+
+      &.error {
+        position: relative;
+        border-color: $red;
+        // margin: 0 0 2.5rem;
+
+        .error-text {
+          color: $red;
+          font-size: 0.688rem;
+          margin: 5px 0;
+          display: flex;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          right: 1rem;
+
+          .error-icon {
+            border-radius: 50%;
+            border: 1px solid $red;
+            width: 0.8rem;
+            height: 0.8rem;
+            font-weight: 500;
+            margin-right: 0.25rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.5rem;
+          }
+        }
+      }
+
+      input {
+        font-size: 0.875rem;
+        letter-spacing: 0.013rem;
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 1rem;
+        background-color: $grey;
+
+        &[type="password"] {
+          padding-right: 3rem;
+          position: relative;
+        }
+
+        &:focus {
+          &::placeholder {
+            visibility: hidden;
+          }
+        }
+      }
+    }
+  }
+
+  &.login {
+    .auth-wrapper {
+      height: 25.5rem;
+      width: 100%;
+      padding: 1.875rem;
+
+      @include for-tablet-landscape-up {
+        width: 34.5rem;
+      }
+    }
+
+    .alt {
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.signup {
+    .signup-auth-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      grid-gap: 1.625rem;
+      width: 56.25rem;
+    }
+
+    .signup-progress {
+      font-size: 0.875rem;
+      width: 11rem;
+      // width: 9.813rem;
+
+      img {
+        margin-bottom: 1rem;
+        display: none;
+
+        &.current {
+          display: inline;
+        }
+      }
+
+      .a-progress {
+        margin-bottom: 1rem;
+        letter-spacing: 0.011rem;
+
+        &.active {
+          .progress-title-text {
+            color: $primary-dark;
+            font-weight: bold;
+          }
+        }
+
+        &.passed {
+          .progress-title-text {
+            color: $primary-dark;
+            font-weight: bold;
+          }
+        }
+
+        .progress-title-text {
+          color: $dark-gray;
+          font-weight: normal;
+          line-height: normal;
+        }
+      }
+    }
+
+    .auth-wrapper {
+      width: 34.5rem;
+      padding: 1.875rem;
+
+      &.step1 {
+        height: 30rem;
+
+        .form-field {
+          margin-bottom: 1.2rem;
+        }
+      }
+
+      &.step2 {
+        height: 28.5rem;
+
+        .sub-text {
+          font-size: 1rem;
+
+          .dark-blue-text {
+            font-size: .9rem;
+          }
+        }
+
+        .form-alt-text-field {
+          margin-top: 1rem;
+          margin-bottom: 1rem;
+
+          .content {
+            font-size: 1.125rem;
+            line-height: 1.61;
+            letter-spacing: 0.014rem;
+
+            span {
+              color: $primary;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .form-field {
+          // width: 50%;
+          width: 18.313rem;
+
+          // .verifCode-prefix {
+          //   height: 100%;
+          //   background: $light;
+          //   display: inline-flex;
+          // }
+
+          input#verification_code_signup {
+            letter-spacing: 1.9rem;
+            font-size: 24px;
+            color: $dark;
+
+            &::placeholder {
+              color: rgba(129, 143, 144, 0.2);
+            }
+          }
+        }
+
+        // .ver-codes {
+        //   display: inline-flex;
+        //   justify-content: flex-start;
+        //   height: 100%;
+
+        //   input {
+        //     height: 100%;
+        //     font-size: 24px;
+        //     letter-spacing: 0.31px;
+        //     color: $dark;
+
+        //     &::placeholder {
+        //       color: rgba(129, 143, 144, 0.2);
+        //     }
+        //   }
+        // }
+      }
+
+      &.step3 {
+        height: 37.875rem;
+
+        .form-alt-text-field {
+          margin-bottom: 1rem;
+        }
+      }
+
+      &.step4 {
+        height: 33.125rem;
+      }
+
+      .sub-text {
+        font-size: 1.125rem;
+        letter-spacing: 0.014rem;
+        line-height: 1.61;
+        color: $dark-grey-rgba-text;
+
+        span {
+          color: $primary;
+          cursor: pointer;
+
+          &.dark-blue-text {
+            color: $dark-blue;
+          }
+
+          &.dark-text {
+            color: $dark;
+          }
+        }
+      }
+
+      button.auth-action-btn {
+        margin-top: 1rem;
+        margin-bottom: 2.2rem;
+        height: 3.125rem;
+      }
+
+      .form-alt-text-field {
+        .content {
+          font-size: 0.688rem;
+          line-height: 1.063rem;
+          letter-spacing: 0.009rem;
+
+          span {
+            color: $primary;
+            cursor: pointer;
+
+            &.dark-blue-text {
+              color: $dark-blue;
+            }
+
+            &.dark-text {
+              color: $dark;
+            }
+          }
+        }
+      }
+
+      .auth-action-btn-wrapper {
+        grid-template-columns: 1fr 3fr;
+      }
+    }
+  }
+
+  &.forgot-password {
+    .auth-wrapper {
+      height: 24.125rem;
+      width: 34.5rem;
+      padding: 1.875rem;
+    }
+
+    .alt {
+      margin-bottom: 1rem;
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &.reset-password {
+    .auth-wrapper {
+      height: 25.5rem;
+      width: 34.5rem;
+      padding: 1.875rem;
+
+      &.with-phone {
+        height: 29.5rem;
+      }
+    }
+
+    .alt {
+      span {
+        cursor: pointer;
+      }
+    }
+
+    .form-field {
+      &.reset-p {
+        width: 18.313rem;
+
+        input#verification_code_reset {
+          letter-spacing: 1.9rem;
+          font-size: 24px;
+          color: $dark;
+
+          &::placeholder {
+            color: rgba(129, 143, 144, 0.2);
+          }
+        }
+      }
+    }
+
+    .login-success-modal-text {
+      font-size: 1.25rem;
+      line-height: 1.2;
+      letter-spacing: 0.011rem;
+      text-align: center;
+      color: $dark-gray;
+    }
+  }
+}
+
+.input-withPrefix {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  height: 100%;
+
+  .dropdown-formOption {
+    position: relative;
+    background: $light;
+    height: 100%;
+    cursor: pointer;
+
+    .flag {
+      font-size: 1.5rem;
+      // width: 60%;
+      // max-width: 100%;
+      margin-left: 8%;
+    }
+
+    .icon {
+      width: .65rem;
+      margin-right: .3rem;
+    }
+
+    .current-value {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: .9rem;
+      height: 100%;
+      padding-left: 10%;
+      // padding-right: 10%;
+    }
+    .dropdown-options {
+      display: none;
+    }
+
+    &:hover {
+      .dropdown-options {
+        position: absolute;
+        top: 85%;
+        left: 0;
+        // height: 100%;
+        height: 145%;
+        display: block;
+        width: 100%;
+        z-index: 2;
+        border-top: 1px solid $lighter-grey;
+        box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 3px 5px -2px rgba(0, 0, 0, 0.2);
+
+        .dropdown-option {
+          display: flex;
+          justify-content: space-between;
+          padding-left: 10%;
+          padding-right: 10%;
+          padding-top: 5%;
+          padding-bottom: 5%;
+          align-items: center;
+          background: $light;
+
+          &:hover {
+            background: $border-grey;
+          }
+        }
+      }
+    }
+  }
+}
+
+.radio-fields {
+  margin-left: 0.5rem;
+
+  &.error {
+    background: none;
+
+    .radio-field {
+      input[type="radio"] {
+        &:before {
+          content: '';
+          border: 1px solid $red;
+        }
+      }
+    }
+  }
+
+  .radio-field {
+    margin-bottom: .75rem;
+    input[type="radio"] {
+      position: relative;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: -3px;
+        top: -1px;
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        background: #f2f4f7;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      &:checked {
+        &:before {
+          content: "\2713";
+          background:  #33cccd;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: .8rem;
+        }
+      }
+    }
+    label {
+      margin-left: 1rem;
+    }
+  }
 }

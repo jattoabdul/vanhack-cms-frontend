@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800');
 
 html, * {
-  font-family: 'Roboto', 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Poppins', 'Avenir', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   // user-select: none;
@@ -9,8 +9,13 @@ html, * {
   transition: .3s all ease-in-out;
 }
 
+:root {
+  font-size: 16px;
+}
+
 body {
-  margin: 0; padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 *,
@@ -20,83 +25,74 @@ body {
   margin: 0;
 }
 
-// helpers
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.left-align {
-  text-align: left;
-}
-.right-align {
-  text-align: right;
-}
-.center-align {
-  text-align: center;
-}
-
-.small-text {
-  color: $table-text-grey;
-  font-size: 0.8rem;
-}
-
-.container {
-  width: 70%;
-  min-width: 80%;
-  margin: 0 auto;
-  max-width: 1280px;
-
-  @include breakpoint($max: 767px) {
-    min-width: 90%
-  }
-
-  @include for-phone-only {
-    min-width: 90%;
-  }
-}
-
 img {
+  max-width: 100%;
+
   &.invert {
     filter: invert(1);
   }
 }
 
-input {
-  &:focus {
-    outline: none;
+h1 {
+  font-size: 1.5rem;
+  letter-spacing: 0.019rem;
+  line-height: normal;
+  margin-bottom: 1.125rem;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 120%;
+  margin: 2.8rem 0 1.68rem 0;
+}
+
+p {
+  color: $dark;
+
+  &.flow-text {
+    font-size: 1.68rem;
   }
 }
 
-.btn, button, .card {
-  // box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+a {
   text-decoration: none;
+  color: inherit;
+}
+
+hr {
+  &.divider {
+    border: none;
+    background: $grey;
+    height: 1px;
+    width: 100%;
+    margin: 1.5rem 0;
+  }
 }
 
 button {
-  padding: 0.75rem 2rem;
+  padding: 0;
+  width: 100%;
+  height: 2.5rem;
   border: none;
-  color: white;
-  border-radius: 4px;
-  font-size: 0.9rem;
+  color: $light;
+  border-radius: 0.25rem;
+  font-size: 1rem;
   background: $primary;
   cursor: pointer;
+  white-space: nowrap;
 
   img {
     margin-right: 0.5rem;
   }
 
-  &.silent {
-    background: none;
-    border: 1px solid $light-white;
-    color: $primary;
-  }
-  &.round {
-    border-radius: 3rem;
-  }
-
   &:focus {
     outline: none;
+  }
+
+  &.inverse {
+    background: $light;
+    color: $primary;
+    border: 1.5px solid $border-grey-rgba;
   }
 
   &.no-shadow {
@@ -107,37 +103,218 @@ button {
     display: block;
     margin: 1rem auto;
   }
-}
 
-.btn {
-  &.round {
-    background: $primary;
-    border-radius: 3rem;
-    padding: 0.5rem 2rem;
-    font-weight: 500;
+  &.small {
+    border-radius: 1rem;
+    padding: .5rem 1rem;
+    margin-right: 1rem;
   }
 }
 
-.card {
-  border-radius: 10px;
-  .card-content {
-    padding: 10%;
-    h1, h2, h3, h4, h5 {
-      margin-top: 0;
+button[type="submit"]:disabled,
+button[type="submit"]:disabled:hover,
+button[type="submit"]:disabled:active,
+button[type="submit"]:disabled:focus {
+  background: lightgrey;
+  color: darkgrey;
+}
+
+input {
+  &:focus {
+    outline: none;
+  }
+
+  &:disabled {
+    color: grey;
+  }
+}
+
+form {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+    .form-field {
+      display: block;
+      margin-bottom: 1rem;
+      &.wide {
+        grid-column: 1 / -1;
+        padding: 0;
+      }
+      &.inline {
+        input {
+          width: inherit;
+          display: inline-block;
+        }
+        .field {
+          margin-bottom: 0.5rem;
+          border-bottom: 1px solid $light-grey;
+          padding-bottom: 0.5rem;
+          input {
+            margin: 3px 1px;
+          }
+        }
+        .add {
+          position: relative;
+          img {
+            width: 2rem;
+            position: absolute;
+            top: -15%;
+            left: 1rem;
+            cursor: pointer;
+          }
+        }
+      }
+
+      label, input {
+        display: block;
+      }
+      label {
+        color: $dark-gray;
+      }
+      input {
+        padding: 10px;
+        margin-top: 0.5rem;
+        background: $grey;
+        border: none;
+        width: 100%;
+      }
     }
-    hr.separator {
-      height: 2px;
-      background: $light-grey;
-      border: none;
-      margin: 1.5rem 2%;
+  }
+
+  input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  input[type="submit"]:disabled,
+  input[type="submit"]:disabled:hover,
+  input[type="submit"]:disabled:active,
+  input[type="submit"]:disabled:focus {
+    background: lightgrey;
+    color: darkgrey;
+  }
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-color: $primary;
+  height: 2.5rem;
+}
+
+.table {
+  .panel-head, .tr {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .panel-body {
+    padding: 2px;
+    border-right: 1px solid $ash-grey;
+    border-left: 1px solid $ash-grey;
+    border-bottom: 1px solid $ash-grey;
+    .tr {
+      &:nth-child(odd) {
+        background: #f6f6f6;
+      }
+      .cell {
+        padding: 0.75rem 1rem;
+        &:not(:last-child) {
+          border-right: 1px solid $grey;
+        }
+      }
     }
   }
 }
 
+
+// Start of Helpers
+.left-align {
+  text-align: left;
+}
+.right-align {
+  text-align: right;
+}
+.center-align {
+  text-align: center !important;
+}
+
+.underlined {
+  text-decoration: underline !important;
+}
+.lowercase {
+  text-transform: lowercase !important;
+}
+.uppercase {
+  text-transform: uppercase !important;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+
+
+.invisible {
+  visibility: hidden;
+}
 .hide {
   display: none !important;
 }
 
+
+.black-text {
+  color: black;
+}
+.dark-text {
+  color: $dark;
+}
+.white-text {
+  color: white;
+}
+.grey-text {
+  color: $grey-text;
+}
+.dark-grey-text {
+  color: $dark-grey-text;
+}
+.primary-text {
+  color: $primary;
+}
+.blue-text {
+  color: $blue;
+}
+.red-text {
+  color: $red;
+}
+.white-bg {
+  background: $light;
+}
+
+.sub-panel-title {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.error {
+  background: red;
+}
+.sucess {
+  background: green;
+}
+.info {
+  background: green;
+}
+
+.pointer {
+  cursor: pointer;
+}
+// End of helpers
+
+// Start of Flex css helpers
 .flex {
   display: flex;
   &.wrap {
@@ -158,7 +335,7 @@ button {
       flex-direction: column;
     }
   }
-  
+
 }
 
 .dir-column {
@@ -170,15 +347,22 @@ button {
 .f-order-3 { order: 3 }
 .f-order-4 { order: 4 }
 .f-order-5 { order: 5 }
+// End of Flex css helpers
 
+// Start of Grid css helpers
 .grid {
   display: grid;
   grid-gap: 1rem;
+
   &.two, &.equal-two {
     grid-template-columns: 1fr 1fr;
+
+    @include breakpoint($max: 900px) {
+      grid-template-columns: 1fr;
+    }
   }
   &.three {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
   &.two-three {
     grid-template-columns: 2fr 3fr;
@@ -186,18 +370,22 @@ button {
   &.three-two {
     grid-template-columns: 3fr 2fr;
   }
-  &.pad7 {
-    grid-template-columns: calc(100% - 20vw);
-  }
-  &.pad8 {
-    grid-template-columns: calc(100% - 35vw);
-  }
 
   .wide {
     grid-column: 1 / -1;
   }
-}
 
+  .span-col-2 {
+    grid-column: span 2;
+
+    @include breakpoint($max: 500px) {
+      grid-column: span 1;
+    }
+  }
+}
+// End of Grid css helpers
+
+// Start of Media Queries css helpers
 .hide-on-med-and-down {
   @include breakpoint ($max: 992px) {
     display: none;
@@ -209,213 +397,172 @@ button {
     display: none;
   }
 }
+.hide-on-mobile {
+  @include breakpoint ($max: 700px) {
+    display: none;
+  }
+}
+.only-mobile {
+  @include breakpoint($min:700px) {
+    display: none !important;
+  }
+}
+// End of Media Queries css helpers
+
+
+// Start of Global Stylings
+.page {
+  overflow-y: auto;
+}
+
+.container {
+  width: 70%;
+  min-width: 80%;
+  margin: 0 auto;
+  max-width: 1280px;
+
+  @include breakpoint($max: 767px) {
+    min-width: 90%
+  }
+
+  @include for-phone-only {
+    min-width: 90%;
+  }
+}
+
+.search {
+  width: 16.563rem;
+  height: 2.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  border: solid 1px $border-grey;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.35rem 0.5rem;
+
+  input {
+    width: 100%;
+    font-size: 0.875rem;
+    // padding: 0.25rem 0.5rem 0.1rem;
+    padding: 0 0.5rem 0 0.1rem;
+    border: none;
+    border-radius: 4px;
+    background: none;
+    color: $dark-grey-text;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+
+  img {
+    height: 1rem;
+    cursor: pointer;
+  }
+}
 
 .dropdown {
   position: relative;
-  padding: 0.5rem 2rem 0.5rem 0.3rem;
-  border-radius: 4px;
-  border: solid 1px $light-white;
-  display: flex;
-  align-items: center;
-
-  .drop-icon {
-    position: absolute;
-    width: 0.7rem;
-    top: 30%;
-    right: 5%;
+  .trigger {
+    z-index: 1;
+    background: white;
+    padding: 4px 1px;
+    border: 1px solid $grey;
   }
-
-  .drop-text {
-    font-size: 0.8rem;
-    color: $lighter-grey;
-
-    &.inverse {
-      color: $table-text-grey;
+  .drop-list {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: white;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.08);
+    span {
+      display: block;
+      padding: 4px;
+      text-align: left;
+      cursor: pointer;
+      z-index: 4;
+      &:hover {
+        background: $light-grey;
+        background: $primary;
+        color: white;
+        border-radius: 4px;
+      }
+    }
+  }
+  &:hover {
+    .drop-list {
+      display: block;
+      z-index: 5;
+      padding: 2px;
     }
   }
 }
 
-.white-bg {
+.options-dropdown {
+  border: $grey;
+  color: $dark-gray;
+  border-radius: 4px;
+  display: block;
+  position: relative;
   background: white;
-}
+  margin: 0 .5rem;
+  width: 90%;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: center;
 
-.page {
-  overflow-y: auto;
-  .top-title-action {
+  .trigger {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    button {
-      margin-left: 0.5rem;
-    }
-
-    .left-actions {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-    }
-    .back-btn {
-      display: flex;
-      align-items: center;
-      padding: 0.25rem 0.5rem;
-      border: 1px solid $border-grey;
-      color: $dark;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      background: white;
-      cursor: pointer;
-      margin-right: 1rem;
-
-      img {
-        width: 100%;
-        margin-right: 0.5rem;
-      }
-      span {
-        margin-right: 0.5rem;
-      }
-    }
-  }
-  .title-with-outstandings {
-    .title, .outstandings {
-      display: inline-block;
-      margin-right: 0.9rem;
+    border-top: $grey 1px solid;
+    border-right: $grey 1px solid;
+    border-left: $grey 1px solid;
+    border-bottom: 1px solid $grey;
+    padding: 5px;
+    img {
+      height: 0.8rem;
+      margin-left: 1rem;
     }
   }
 
-  .title {
-    font-size: 1.5rem;
-    font-weight: 400;
-  }
-  .outstandings {
-    color: $outstanding-grey;
-
-    .outstanding-val {
-      color: $secondary;
-    }
-  }
-  .small-title {
-    font-size: 15px;
-    font-weight: 400;
-    color: $table-text-grey;
-  }
-  .space {
-    height: 2rem;
-    width: 100%;
-    display: block;
-    &.double {
-      height: 4rem;
-    }
-  }
-  .label-description {
-    color: $angry-grey;
-    font-size: 0.9rem;
-  }
-  .top-action-stats, .graph-stats-section, .usage-info {
-    background: $white;
-    border-radius: 4px;
-    box-shadow: $box-shadow;
-    border: solid 1px $light-white;
-    padding: 1rem 2rem 2rem;
-    position: relative;
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    display: block;
-    // align-items: flex-start;
-    // justify-content: flex-start;
-
-    .content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-    }
-
-    .right-content {
-      display: flex;
-      align-items: center;
-    }
-    
-    .heading {
-      font-size: 1.1rem;
-      margin-right: 1rem;
-    }
-
-    .legends {
-      color: $table-text-grey;
-      font-size: 0.9rem;
-      
-      .legend {
-        position: relative;
-        margin-left: 4.5rem;
-
-        &.red:before {
-          content: '';
-          position: absolute;
-          top: 3px;
-          left: -1.3rem;
-          height: 0.6rem;
-          width: 0.6rem;
-          background: $primary;
-          border-radius: 50%;
-        }
-        &.green:before {
-          content: '';
-          position: absolute;
-          top: 3px;
-          left: -1.3rem;
-          height: 0.6rem;
-          width: 0.6rem;
-          background: $primary-green;
-          border-radius: 50%;
-        }
-      }
-    }
-
-    .chart-container {
-      svg g g g rect + rect {
-        // fill: none;
-        fill:  $angry-grey;
-        fill-opacity: 0.2;
-        stroke: $angry-grey; 
-        stroke-width: .2;
-        stroke-dasharray: 5 5 5;
-        stroke-dashoffset: 0;
-        width: 0.1;
-      }
-    }
-
-    .stat-toggle {
-      position: absolute;
-      left: 2.5%;
-      bottom: -15%;
-      border-radius: 3rem;
-      padding: 0.5rem;
-      // transition: all ease-in 0s;
-      
-      & > span {
-        display: flex;
-        align-items: center;
-      }
-    }
-
-    &.chartOpen .stat-toggle {
-      bottom: -5%;
-    }
-  }
-  // .stats-container {
-
-  // }
-
-  input[type=number]::-webkit-inner-spin-button, 
-  input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none; 
-    margin: 0;
-  }
-
-  .hidden-input {
+  .choices {
     display: none;
+    z-index: 5;
+    position: absolute;
+    width: 100%;
+    background: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-right: $grey 1px solid;
+    border-left: $grey 1px solid;
+    border-bottom: $grey 1px solid;
+    .choice {
+      text-align: center;
+      display: block;
+      border-top: 1px solid $grey;
+      padding: 4px 1px;
+    }
   }
+
+  &:hover {
+    .trigger {
+      border-bottom: 0px solid $grey;
+    }
+    .choices {
+      display: block;
+    }
+  }
+}
+
+// End of Global Stylings
+.force-select {
+  -webkit-user-select: all;  /* Chrome 49+ */
+  -moz-user-select: all;     /* Firefox 43+ */
+  -ms-user-select: all;      /* No support yet */
+  user-select: all;          /* Likely future */
 }

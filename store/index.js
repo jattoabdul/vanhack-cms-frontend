@@ -12,7 +12,6 @@ export const actions = {
     if (req.headers.cookie) {
       const parsed = cookieparser.parse(req.headers.cookie)
 
-      // const { auth, intent } = parsed
       const { token, profile } = parsed
 
       if (token) {

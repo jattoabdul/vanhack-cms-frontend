@@ -13,6 +13,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     'no-irregular-whitespace': 0,
+    'no-prototype-builtins': 0,
     'arrow-parens': 0,
     'vue/no-v-html': 0,
     'camelcase': 0,
